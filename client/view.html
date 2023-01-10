@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All transactions</title>
+  
+     <style>
+       
+        table,th,td{
+            border: 1px solid rgb(0, 0, 0);
+            border-collapse: collapse;
+            font-family: 'Domine', serif;
+            font-family: 'Spectral', serif;
+
+        }
+        td{
+            padding: 5px;
+        }
+        th{
+            padding: 5px;
+            text-align: left;
+            background-color: #E33333;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+        #tablediv{
+            background-color: rgb(255, 255, 255);
+            width: fit-content;
+            margin: auto;
+            margin-top: 60px;
+            padding: 30px;
+            color: black;
+            border-radius: 10px;
+            margin-bottom: 100px;
+            text-align: center;
+        }
+    
+        label{
+            font-weight: 700;
+            padding-right: 20px;
+            margin-left: 0px;
+            font-family: 'Domine', serif;
+            font-family: 'Spectral', serif;
+            width: 200px;
+        }
+        input{
+            font-family: 'Domine', serif;
+            font-family: 'Spectral', serif;
+            margin-left: 10px;
+            width: 200px;
+            font-size: 16px;
+        }
+
+        .Low { color: rgb(0, 183, 0); }
+        .High { color: rgb(255, 0, 0); }
+        .Medium { color: rgb(250, 233, 0); }   
+
+
+      
+    </style>
+</head>
+
+<body>
+           
+       
+    <div id="tablediv" ng-controller="MyController">
+    
+        <div >
+          <h2 id="heading">View Menu</h2>
+            <table>
+                <tr>
+                    <th >Id <i class="fa fa-sort" ng-click="orderByMe('name')"></i></th>
+                    <th>Name <i class="fa fa-sort" ng-click="orderByMe('price')"></i></th>
+                    <th>Price</th>
+                    <th>Category</th>
+                </tr>
+                
+                    <tr ng-repeat="fd1 in datas|filter:searchtxt|orderBy:myOrderBy|filter:changeColorFilter">
+                        <td ng-style="customStyle.style">{{fd1.product_id}}</td>
+                        <td ng-style="customStyle.style">{{fd1.product_name}}</td>
+                        <td>&#8377;{{fd1.product_price|number:2}}</td>
+                        <td>{{fd1.product_cat|lowercase}}</td>
+                    </tr>
+            
+            </table>
+        </div>
+    <!-- <div ng-controller="MyController">
+        <section id="tableSection" class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="bg-primary">
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Spice</th>
+                        <th scope="col">Food type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in datas">
+                        <td scope="row">{{data.fid}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.description}}</td>
+                        <td>{{data.price}}</td>
+                        <td>{{data.spice}}</td>
+                        <td>{{data.ftype}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div> -->
+</body>
+
+</html>

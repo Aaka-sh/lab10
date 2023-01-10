@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+
+    <style>
+       
+        table,th,td{
+            border: 1px solid rgb(0, 0, 0);
+            border-collapse: collapse;
+            font-family: 'Domine', serif;
+            font-family: 'Spectral', serif;
+
+        }
+        td{
+            padding: 5px;
+        }
+        th{
+            padding: 5px;
+            text-align: left;
+            background-color: #E33333;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+        #tablediv{
+            background-color: rgb(255, 255, 255);
+            width: fit-content;
+            margin: auto;
+            margin-top: 60px;
+            padding: 30px;
+            color: black;
+            border-radius: 10px;
+            margin-bottom: 100px;
+            text-align: center;
+        }
+    
+        label{
+            font-weight: 700;
+            padding-right: 20px;
+            margin-left: 0px;
+            font-family: 'Domine', serif;
+            font-family: 'Spectral', serif;
+            width: 200px;
+        }
+        input{
+            font-family: 'Domine', serif;
+            font-family: 'Spectral', serif;
+            margin-left: 10px;
+            width: 200px;
+            font-size: 16px;
+        }
+
+        .Low { color: rgb(0, 183, 0); }
+        .High { color: rgb(255, 0, 0); }
+        .Medium { color: rgb(250, 233, 0); }   
+
+
+      
+    </style>
+</head>
+
+<body>
+    <div id="reg" style="background-color: white;">
+        <form ng-submit="getData()">
+          
+                <label for="delete" class="form-label">Select ID</label>
+                <select  ng-model="searchid" id="" required ng-change="getData()"
+                    ng-options="data.product_id for data in data1">
+                    <option selected disabled value="">Select one</option>
+                </select>
+       
+       <br>
+       <br>
+        <div >
+            <input type="submit" value="Search" class="btn btn-info" />
+        </div>
+        </form>
+        <div id="tablediv"> 
+    
+            <div >
+              <h2 id="heading">View Menu</h2>
+                <table>
+                    <tr>
+                        <th>Product Id</th>
+                        <th >Name <i class="fa fa-sort" ng-click="orderByMe('product_name')"></i></th>
+                        <th>Price <i class="fa fa-sort" ng-click="orderByMe('product_price')"></i></th>
+                        <th>Category</th>
+                    </tr>
+                    
+                        <tr ng-repeat="fd1 in datas|filter:searchtxt|orderBy:myOrderBy|filter:changeColorFilter">
+                            <td>{{fd1.product_id}}</td>
+                            <td ng-style="customStyle.style">{{fd1.product_name}}</td>
+                            <td>&#8377;{{fd1.product_price|number:2}}</td>
+                            <td>{{fd1.product_cat|lowercase}}</td>                     
+                        </tr>
+                
+                </table>
+            </div>
+        <!-- <div class="container" >
+            <table id="table">
+                <thead>
+                    <tr class="bg-primary">
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Spice</th>
+                        <th scope="col">Food type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in datas">
+                        <td scope="row">{{data.fid}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.description}}</td>
+                        <td>{{data.price}}</td>
+                        <td>{{data.spice}}</td>
+                        <td>{{data.ftype}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
+    </div>
+</body>
+
+</html>

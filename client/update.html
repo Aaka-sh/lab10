@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+
+<body>
+    <br> <br>
+    <div id="reg">
+        <h2 id="heading">Update a Food Item</h2>
+        <form ng-submit="updateEntry()">
+            <div class="container">
+               
+                <div >
+                    <label for="id" >Id</label>
+                    <select ng-model="product_id" required ng-options="data.product_id for data in datas" ng-change="getId()">
+                        <option selected disabled value="">Select one</option>
+                    </select>
+                </div><br>
+
+                <label for="fn"> Product Name: </label>   
+                <input type="text" name="product_name" id="fn" placeholder= "Product name" onblur="validateName()" size="15" ng-model="product_name" required /><br> 
+                
+                <label>Product Price</label>  
+                <input type="number" name="product_price" id="price" placeholder="Price"  size="10" ng-model="product_price" required/><br>
+                
+                <label>Product Category</label>
+                <input type="radio" value="Bakery" name="product_cat" checked ng-model="product_cat"> Bakery   
+                <input type="radio" value="Cooking Essentials" name="product_cat" ng-model="product_cat"> Essentials   
+                <input type="radio" value="Dessert" name="product_cat" ng-model="product_cat"> Dessert  
+                <br>
+                      
+                <div class="mt-5 d-flex justify-content-center">
+                    <input type="submit" value="Update" class="btn btn-secondary">
+                </div>
+        </form>
+    </div>
+</body>
+
+</html>

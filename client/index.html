@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Application</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine&family=Spectral&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/deleazzy_css.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js" integrity="sha512-y1qD3hz/IAf8W4+/UMLZ+CN6LIoUGi7srWJ3r1R17Hid8x0yXe+1B5ZelkaL1Mjzedzu0Cg3HBvDG02SAgSzBw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="myApp">
+    <!-- Angular App -->
+    <div id="a" >
+        <nav>
+            <ul>
+                <li><a href="#/top"><b><em><i class="fa fa-home fa-2x"></i> DelEazzy</em></b></a></li>
+               
+                <li id="ab"><a href="#/"><b>View Data</b></a></li>
+                <li id="log"><a href="#create"><b>Create</b></a></li>
+                <li id="log"><a href="#delete"><b>Delete</b></a></li>
+                <li id="log"><a href="#update"><b>Update</b></a></li>
+                <li id="log"><a href="#search"><b>Search</b></a></li>
+            </ul>
+            
+        </nav>
+        <img src="../public/Images/bowl.png" alt="food bowl" id="bowl"/>
+        </div>
+        <div id="d1">
+            <h1>Meals Made Easy!</h1><br>
+            <h2>Discover Food Delivery Options near you </h2>
+            <div class="fontuser">
+                <input type="text" id="loc" placeholder="Enter Location"> 
+                <i class="fa fa-map-marker fa-2x"></i> 
+            </div>
+            <button onclick="getlocation()" id="locbutton">Get Location</button>  
+             
+           
+        </div>
+       
+        <div ng-view></div>
+    <!-- <div ng-app="myApp" class="mt-4 container">
+        <a href="#/"><button type="button" class="ps-4 pe-4 me-2 btn btn-outline-primary">View</button></a>
+        <a href="#create"><button type="button" class="ps-4 pe-4 me-2 btn btn-outline-success">Create</button></a>
+        <a href="#delete"><button type="button" class="ps-4 pe-4 me-2 btn btn-outline-danger">Delete</button></a>
+        <a href="#update"><button type="button" class="ps-4 pe-4 me-2 btn btn-outline-secondary">Update</button></a>
+        <a href="#search"><button type="button" class="ps-4 pe-4 me-2 btn btn-outline-info">Search</button></a> <br>
+        <ng-view></ng-view>
+    </div> -->
+    <!-- Angular App -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
